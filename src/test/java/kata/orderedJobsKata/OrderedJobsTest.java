@@ -48,7 +48,12 @@ public class OrderedJobsTest {
 	public void testTwoJobsabAsnputReturnsabAsOutput(){
 		expected ="ab";
 		input = "a =>\nb =>";
-		executeTest();
+		output="";
+		String [] jobs = input.split("\n");
+		for(int i = 0; i <jobs.length; i++){
+			output+=jobs[i].substring(0,1);
+		}
+		assertEquals(expected,output);
 	}
 	
 	/**
