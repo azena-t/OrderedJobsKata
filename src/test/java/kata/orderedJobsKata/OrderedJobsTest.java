@@ -15,7 +15,7 @@ public class OrderedJobsTest {
 		if(input.isEmpty()){
 			return "";
 		} else {
-			return "a";
+			return input.substring(0, 1);
 		}
 	}
 	
