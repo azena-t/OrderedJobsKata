@@ -10,7 +10,7 @@ public class OrderedJobsTest {
 	public void testEmptyInputStringReturnsEmptyString(){
 		String expected = "";
 		String input = "";
-		String output = null;
+		String output = "";
 		assertEquals(expected,output);
 	}
 
