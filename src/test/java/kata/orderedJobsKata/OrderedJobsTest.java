@@ -13,8 +13,9 @@ public class OrderedJobsTest {
 	String orderJobs(String input) {
 		if(input.isEmpty()){
 			return "";
+		} else {
+			return "a";
 		}
-		return null;
 	}
 	
 	@Test
