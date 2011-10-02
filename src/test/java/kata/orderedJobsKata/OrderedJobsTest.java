@@ -10,11 +10,19 @@ public class OrderedJobsTest {
 	public void testEmptyInputStringReturnsEmptyString(){
 		String expected = "";
 		String input = "";
-		String output =null;
-		if(input.isEmpty()){
-			output="";
-		}
+		String output = orderJobs(input);
 		assertEquals(expected,output);
+	}
+
+	/**
+	 * @param input
+	 * @return
+	 */
+	String orderJobs(String input) {
+		if(input.isEmpty()){
+			return "";
+		}
+		return null;
 	}
 
 }
