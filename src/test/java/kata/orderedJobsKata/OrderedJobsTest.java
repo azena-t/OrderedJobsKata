@@ -7,6 +7,7 @@ import org.junit.Test;
 public class OrderedJobsTest {
 
 	/**
+	 * Potential production method
 	 * @param input
 	 * @return
 	 */
@@ -18,18 +19,29 @@ public class OrderedJobsTest {
 		}
 	}
 	
+	private String expected;
+	private String input;
+	private String output;
+	
 	@Test
 	public void testEmptyInputStringReturnsEmptyString(){
-		String expected = "";
-		String input = "";
-		String output = orderJobs(input);
-		assertEquals(expected,output);
+		expected = "";
+		input = "";
+		executeTest();
 	}
+	
 	@Test
 	public void testSingleJobaAsInputReturnsaAsOutput(){
-		String expected = "a";
-		String input = "a =>";
-		String output = orderJobs(input);
+		expected = "a";
+		input = "a =>";
+		executeTest();
+	}
+	
+	/**
+	 * Test Method
+	 */
+	private void executeTest() {
+		output = orderJobs(input);
 		assertEquals(expected,output);
 	}
 
