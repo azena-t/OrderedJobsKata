@@ -14,10 +14,32 @@ public class OrderedJobsTest {
 	String orderJobs(String input) {
 		output = "";
 		if(!input.isEmpty()){
+			//Now check there are multiple jobs
 			if(input.indexOf("\n")!=(-1)){
 				String [] jobs = input.split("\n");
 				for(int i = 0; i < jobs.length; i++){
-					output += jobs[i].substring(0,1);
+					
+					//New Stuff
+					//Split the string into the job and dependency
+					String [] jobDependency = jobs[i].split("=>");
+					//If there is a dependency then do this
+					if(jobDependency.length == 2){
+						//Clean up the strings
+						for(int j = 0; j < jobDependency.length; j++){
+							jobDependency[j] = jobDependency[j].trim();
+						}
+						String dependee = jobDependency[0];
+						String dependence = jobDependency[1];
+						int deeIndex = output.indexOf(dependee);
+						int decIndex = output.indexOf(dependence);
+						if(decIndex == -1 && deeIndex == -1){
+							output += dependence + dependee;
+						}
+					}
+					//End of New Stuff
+					if(output.indexOf(jobs[i].substring(0,1)) == -1){
+						output += jobs[i].substring(0,1);
+					}
 				}
 			} else {
 				output += input.substring(0, 1);
@@ -29,6 +51,48 @@ public class OrderedJobsTest {
 	private String expected;
 	private String input;
 	private String output;
+	
+	
+	@Test
+	public void testTwoJobsabWhereaIsDependentOnbReturnsbaAsOutput(){
+		expected = "ba";
+		input = "a => b\nb =>";
+		executeTest();
+		/*output = "";
+		String [] jobs = input.split("\n");
+		for(int i = 0; i < jobs.length; i++){
+			//Split the string into the job and dependency
+			String [] jobDependency = jobs[i].split("=>");
+			//If there is a dependency then do this
+			if(jobDependency.length == 2){
+				//Clean up the strings
+				for(int j = 0; j < jobDependency.length; j++){
+					jobDependency[j] = jobDependency[j].trim();
+				}
+				String dependee = jobDependency[0];
+				String dependence = jobDependency[1];
+				int deeIndex = output.indexOf(dependee);
+				int decIndex = output.indexOf(dependence);
+				if(decIndex == -1 && deeIndex == -1){
+					output += dependence + dependee;
+				}
+			}
+		}
+		assertEquals(expected,output);*/
+	}
+	
+	/*@Test
+	public void testThreeJobsabcWherecIsDependentOnbReturnsacbAsOutput(){
+		expected = "acb";
+		input = "a =>\n"
+	}*/
+	
+	@Test
+	public void testThreeJobsabcAsInputReturnsabcAsOutput(){
+		expected = "abc";
+		input = "a =>\nb =>\nc =>";
+		executeTest();
+	}
 	
 	@Test
 	public void testTwoJobsabAsnputReturnsabAsOutput(){

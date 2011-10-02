@@ -6,3 +6,5 @@ Route taken to complete:
 Up to this point I realise I have been putting implementation straight into the 
 method rather than solving in the test first.
 4 - fourth test written and passed. Test was first passed in test then extracted
+5 - Fifth test written, this was an interesting one. It has balooned my functional
+code by quite a lot. Breaking down was useful though.
