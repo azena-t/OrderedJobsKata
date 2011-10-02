@@ -1,0 +1,5 @@
+#surefire
+#Sun Oct 02 16:16:38 BST 2011
+user.dir=/home/kipper/Development/OrderedJobsKata
+localRepository=/home/kipper/.m2/repository
+basedir=/home/kipper/Development/OrderedJobsKata
