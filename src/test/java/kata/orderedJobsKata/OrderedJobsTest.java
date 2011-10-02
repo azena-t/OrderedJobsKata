@@ -37,6 +37,13 @@ public class OrderedJobsTest {
 		executeTest();
 	}
 	
+	@Test
+	public void testSingleJobbAsInputReturnsbAsOutput(){
+		expected = "b";
+		input = "b =>";
+		executeTest();
+	}
+	
 	/**
 	 * Test Method
 	 */
