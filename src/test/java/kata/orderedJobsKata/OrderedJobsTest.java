@@ -12,16 +12,30 @@ public class OrderedJobsTest {
 	 * @return
 	 */
 	String orderJobs(String input) {
-		if(input.isEmpty()){
-			return "";
-		} else {
-			return input.substring(0, 1);
+		output = "";
+		if(!input.isEmpty()){
+			if(input.indexOf("\n")!=(-1)){
+				String [] jobs = input.split("\n");
+				for(int i = 0; i < jobs.length; i++){
+					output += jobs[i].substring(0,1);
+				}
+			} else {
+				output += input.substring(0, 1);
+			}
 		}
+		return output;
 	}
 	
 	private String expected;
 	private String input;
 	private String output;
+	
+	@Test
+	public void testTwoJobsabAsnputReturnsabAsOutput(){
+		expected ="ab";
+		input = "a =>\nb =>";
+		executeTest();
+	}
 	
 	@Test
 	public void testEmptyInputStringReturnsEmptyString(){
@@ -42,18 +56,6 @@ public class OrderedJobsTest {
 		expected = "b";
 		input = "b =>";
 		executeTest();
-	}
-	
-	@Test
-	public void testTwoJobsabAsnputReturnsabAsOutput(){
-		expected ="ab";
-		input = "a =>\nb =>";
-		output="";
-		String [] jobs = input.split("\n");
-		for(int i = 0; i <jobs.length; i++){
-			output+=jobs[i].substring(0,1);
-		}
-		assertEquals(expected,output);
 	}
 	
 	/**
