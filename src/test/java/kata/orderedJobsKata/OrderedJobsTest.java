@@ -6,14 +6,6 @@ import org.junit.Test;
 
 public class OrderedJobsTest {
 
-	@Test
-	public void testEmptyInputStringReturnsEmptyString(){
-		String expected = "";
-		String input = "";
-		String output = orderJobs(input);
-		assertEquals(expected,output);
-	}
-
 	/**
 	 * @param input
 	 * @return
@@ -23,6 +15,21 @@ public class OrderedJobsTest {
 			return "";
 		}
 		return null;
+	}
+	
+	@Test
+	public void testEmptyInputStringReturnsEmptyString(){
+		String expected = "";
+		String input = "";
+		String output = orderJobs(input);
+		assertEquals(expected,output);
+	}
+	@Test
+	public void testSingleJobaAsInputReturnsaAsOutput(){
+		String expected = "a";
+		String input = "a =>";
+		String output = orderJobs(input);
+		assertEquals(expected,output);
 	}
 
 }
