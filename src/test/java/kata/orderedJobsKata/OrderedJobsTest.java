@@ -37,6 +37,7 @@ public class OrderedJobsTest {
 						}
 					}
 					//End of New Stuff
+					//Small change
 					if(output.indexOf(jobs[i].substring(0,1)) == -1){
 						output += jobs[i].substring(0,1);
 					}
